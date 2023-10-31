@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Games</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Logo</th>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Description</th>
+                <th>Average Rating</th>
+                <th>Reviews</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% gameDocs.forEach(function(game) { %>
+                <tr>
+                    <td><%= game.logo %></td>
+                    <td><%= game.title %></td>
+                    <td><%= game.genre %></td>
+                    <td><%= game.description %></td>
+                    <td>Average Rating Placeholder</td>
+                    <td><a href="/games/"<%= game._id %>>INFO</a></td>
+                    <td>EDIT</td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>
