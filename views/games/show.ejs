@@ -20,8 +20,59 @@
         </section>
         <section>
             <form id="add-review-form" method="POST" action="/games/<%= game._id %>/reviews">
+                <label>Rating
+                    <select name="rating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </label>
+                <label>Progress
+                    <select name="progress">
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </label>
+                <label>Content</label>
+                <input type="text" name="content">
                 <input type="submit" name="Add Review">
             </form>
+        </section>
+        <section>
+            <h3>Reviews</h3>
+            <% if(game.reviews != []) { %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Avatar</th>
+                            <th>Reviewer</th>
+                            <th>Rating</th>
+                            <th>Progress</th>
+                            <th>Review Content</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% game.reviews.forEach(function(r) { %>
+                            <tr>
+                                <td><img src="<%= r.avatar %>" alt="Avatar"></td>
+                                <td><%= r.userName %></td>
+                                <td><%= r.rating %></td>
+                                <td><%= r.progress %></td>
+                                <td><%= r.content %></td>
+                            </tr>
+                    </tbody>
+                </table>
+                <% }) %>
+            <% } else { %>
+                <p>No reviews yet!</p>
+            <% } %>
         </section>
     </body>
 
