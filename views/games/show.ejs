@@ -15,7 +15,14 @@
             <br>
             <h1><%= game.title %></h1>
             <h3><%= game.genre %></h3>
-            <h3>Average Rating Placeholder</h3>
+            <h3>Average Rating: 
+                <% let ratingsTotal = 0 %>
+                <% game.reviews.forEach(function(r) { %>
+                    <% ratingsTotal += r.rating %>
+                <% }) %>
+                <% const avgRating = ratingsTotal / (game.reviews.length) %>
+                <%= avgRating %>
+            </h3>
             <p><%= game.description %></p>
         </section>
         <section>

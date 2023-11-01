@@ -18,6 +18,7 @@ async function create(req, res) {
         gameDoc.reviews.push(req.body);
     
         await gameDoc.save();
+        res.redirect(`/games/${gameDoc._id}`);
 
     } catch(err) {
         console.log(err, "<-- review.js create function error");
