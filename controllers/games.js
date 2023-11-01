@@ -8,9 +8,7 @@ module.exports = {
 }
 
 async function show (req, res) {
-    console.log(req.params.id, "<-- req.params.id");
     const gameDocument = await Game.findById(req.params.id);
-    console.log(gameDocument._id, "<-- gameDocument._id");
     res.render("games/show", { game: gameDocument});
 }
 

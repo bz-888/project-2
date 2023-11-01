@@ -18,11 +18,9 @@ async function create(req, res) {
         gameDoc.reviews.push(req.body);
     
         await gameDoc.save();
-    
-        console.log(gameDoc, "<-- gameDoc");
 
     } catch(err) {
-        console.log(err, "<-- create function error");
+        console.log(err, "<-- review.js create function error");
         res.send(err);
     }
 
