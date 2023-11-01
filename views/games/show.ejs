@@ -1,4 +1,30 @@
 <%- include('../partials/header') %>
 
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <section>
+            <img src="<%= game.logo %>" alt="Game Logo" class="gamesShowLogo">
+            <br>
+            <h1><%= game.title %></h1>
+            <h3><%= game.genre %></h3>
+            <h3>Average Rating Placeholder</h3>
+            <p><%= game.description %></p>
+        </section>
+        <section>
+            <form id="add-review-form" method="POST" action="/games/<%= game._id %>/reviews">
+                <input type="submit" name="Add Review">
+            </form>
+        </section>
+    </body>
+
+</html>
 
 <%- include('../partials/footer') %>

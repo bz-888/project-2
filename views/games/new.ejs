@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <form id="new-form" action="/games" method="POST">
-  <label>Logo:</label>
+  <label>Logo URL:</label>
   <input type="text" name="logo">
   <label>Title:</label>
   <input type="text" name="title">
@@ -9,6 +9,7 @@
   <input type="text" name="genre">
   <label>Description:</label>
   <input type="text" name="description">
+  <input type="submit" name="Add Game">
 </form>
 
 <%- include('../partials/footer') %>

@@ -11,12 +11,14 @@
 
 <body>
   <nav>
+    <a href="/">HOME PAGE</a>
     <a href="/GAMES">ALL GAMES</a>
 
     <!-- user comes from res.locals.user = req.user in the server.js file!!!!!!! -->
     <!-- user will be the mongodb document if logged in
     if not the user will be undefined meaning they are not logged in -->
     <% if (user) { %>
+
 
       <a href="/games/new">ADD GAME</a>
       <a href="/logout">logout</a>
