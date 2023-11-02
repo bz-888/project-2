@@ -18,6 +18,9 @@
                 <th>Average Rating</th>
                 <th>Reviews</th>
                 <th>Edit</th>
+                <% if (user) { %>
+                    <th>Remove Game</th>
+                <% } %>
             </tr>
         </thead>
         <tbody>
@@ -39,6 +42,13 @@
                     
                     <td><a href="/games/<%= game._id %>">INFO</a></td>
                     <td>EDIT</td>
+                    <% if (user) { %>
+                        <td>
+                            <form action="/<%= game._id %>?_method=DELETE" method="POST">
+                                <button type="Submit">DELETE GAME</button>
+                            </form>
+                        </td>
+                    <% } %>
                 </tr>
             <% }) %>
         </tbody>

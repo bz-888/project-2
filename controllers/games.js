@@ -4,7 +4,23 @@ module.exports = {
     index,
     new: newGame,
     create,
-    show
+    show,
+    deleteGame
+}
+
+async function deleteGame (req, res) {
+    try {
+        console.log(req.params.id, "<-- req.params.id");
+        const gameDoc = await Game.findById(req.params.id);
+        
+        console.log(gameDoc, "<-- gameDoc");
+        gameDoc.remove(req.params.id);
+
+        await gameDoc.save();
+        res.redirect("/games");
+    } catch(err) {
+        res.send(err);
+    }
 }
 
 async function show (req, res) {

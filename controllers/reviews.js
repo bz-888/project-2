@@ -29,13 +29,11 @@ async function create(req, res) {
 
 
 async function deleteReview(req, res) {
-    console.log(req.params.id, "<-- req.params.id");
-    console.log(req.user._id, "<-- req.user._id");
-    try {gameDoc = await Game.findOne({
+    try {
+        const gameDoc = await Game.findOne({
         "reviews._id": req.params.id,
         "reviews.user": req.user._id   
     })
-    console.log(gameDoc, "<-- gameDoc");
     gameDoc.reviews.remove(req.params.id);
     await gameDoc.save();
     res.redirect(`/games/${gameDoc._id}`);
