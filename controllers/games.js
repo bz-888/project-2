@@ -10,13 +10,8 @@ module.exports = {
 
 async function deleteGame (req, res) {
     try {
-        console.log(req.params.id, "<-- req.params.id");
-        const gameDoc = await Game.findById(req.params.id);
-        
-        console.log(gameDoc, "<-- gameDoc");
-        gameDoc.remove(req.params.id);
-
-        await gameDoc.save();
+        // find the id equal to req.params.id and remove it from the Game db model
+        await Game.findByIdAndRemove(req.params.id);
         res.redirect("/games");
     } catch(err) {
         res.send(err);

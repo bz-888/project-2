@@ -44,7 +44,7 @@
                     <td>EDIT</td>
                     <% if (user) { %>
                         <td>
-                            <form action="/<%= game._id %>?_method=DELETE" method="POST">
+                            <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
                                 <button type="Submit">DELETE GAME</button>
                             </form>
                         </td>
