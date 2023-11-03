@@ -25,5 +25,6 @@
 
 ## Next Steps
 * Edit games
-* Further styling/formatting
+* Home Page with featured games
+* Further styling/formatting (including modal bootstrap for review edits)
 * Only allow designated VIPs to add, edit, and delete games
