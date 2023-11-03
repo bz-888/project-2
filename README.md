@@ -18,7 +18,7 @@
 
 
 ## Getting Started
-* App: localhost: 3000
+* App: [Link to App](https://tiny-pink-codfish-sari.cyclic.app/)
 * Trello: [Link to Trello](https://trello.com/b/J0qbt6Z0/ga-sei-project-2-austin-family-game-reviews)
 * ERD: [Link to ERD](https://www.figma.com/file/S5KL5L5f9M2t3n195iOVmD/Project-2-ERD?type=design&node-id=0-1&mode=design&t=zEwK6vemvFN43f1A-0)
 * Wireframe: [Link to Wireframe](https://www.figma.com/file/zwCt1Lf6yHuYaAStSbKipn/Project-2-Wireframe?type=whiteboard&node-id=0-1&t=B6XpO9AkUqfP4aze-0)
