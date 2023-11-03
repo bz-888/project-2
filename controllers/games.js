@@ -23,8 +23,12 @@ async function deleteGame (req, res) {
 }
 
 async function show (req, res) {
-    const gameDocument = await Game.findById(req.params.id);
-    res.render("games/show", { game: gameDocument});
+    try {
+        const gameDocument = await Game.findById(req.params.id);
+        res.render("games/show", { game: gameDocument});
+    } catch(err) {
+        res.send(err);
+    }
 }
 
 async function create (req, res) {
