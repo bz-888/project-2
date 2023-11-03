@@ -11,6 +11,10 @@ module.exports = {
 async function deleteGame (req, res) {
     try {
         // find the id equal to req.params.id and remove it from the Game db model
+        // this findByIdAndRemove function does not need a .save because we are not "editing" a db entry
+        // like when we are deleting a single review from a game,
+        // instead, we are blowing up an entire entry in the database
+        // similar to deleting a word doc versus deleting a paragraph in a word doc
         await Game.findByIdAndRemove(req.params.id);
         res.redirect("/games");
     } catch(err) {

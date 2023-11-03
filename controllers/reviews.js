@@ -2,7 +2,8 @@ const Game = require("../models/game");
 
 module.exports = {
     create,
-    deleteReview
+    deleteReview,
+    editReview
 }
 
 async function create(req, res) {
@@ -31,14 +32,41 @@ async function create(req, res) {
 async function deleteReview(req, res) {
     try {
         const gameDoc = await Game.findOne({
-        "reviews._id": req.params.id,
-        "reviews.user": req.user._id   
-    })
+            "reviews._id": req.params.id,
+            "reviews.user": req.user._id   
+    });
     gameDoc.reviews.remove(req.params.id);
     await gameDoc.save();
     res.redirect(`/games/${gameDoc._id}`);
     
     } catch(err) {
         res.send(err);
+    }
+}
+
+async function editReview (req, res) {
+    try {
+        const gameDoc = await Game.findOne({
+            "reviews._id": req.params.id,
+            "reviews.user": req.user._id
+        });
+
+        const reviewDoc = gameDoc.reviews.id(req.params.id);
+
+        req.body.user = req.user._id;
+        req.body.userName = req.user.name;
+        req.body.email = req.user.email;
+        req.body.avatar = req.user.avatar;
+
+        gameDoc.reviews.remove(reviewDoc._id);
+        gameDoc.reviews.push(req.body);
+
+        await gameDoc.save();
+
+        res.redirect(`/games/${gameDoc._id}`);
+
+    } catch(err) {
+        console.log(err, "<-- editReview error")
+        res.send(err)
     }
 }
